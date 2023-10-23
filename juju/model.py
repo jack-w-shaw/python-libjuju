@@ -1879,7 +1879,7 @@ class Model:
         Returns the confirmed origin returned by the Juju API to be used in
         calls like ApplicationFacade.Deploy
 
-        :returns str, client.CharmOrigin, [str]
+        :returns URL, client.CharmOrigin, [str]
         """
         charms_cls = client.CharmsFacade
         if charms_cls.best_facade_version(self.connection()) < 3:
@@ -1919,7 +1919,7 @@ class Model:
         result.charm_origin.base = utils.get_base_from_origin_or_channel(resolved_origin, selected_series)
         charm_url.series = selected_series
 
-        return str(charm_url), resolved_origin
+        return charm_url, resolved_origin
 
     async def _resolve_architecture(self, url):
         """_resolve_architecture returns the architecture for a given charm url.

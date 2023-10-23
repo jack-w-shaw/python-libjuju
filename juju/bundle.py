@@ -700,7 +700,7 @@ class AddCharmChange(ChangeInfo):
         if identifier is None:
             raise JujuError('unknown charm {}'.format(self.charm))
 
-        await context.model._add_charm(identifier, origin)
+        await context.model._add_charm(str(identifier), origin)
 
         if str(ch) not in context.origins:
             context.origins[str(identifier)] = {}
